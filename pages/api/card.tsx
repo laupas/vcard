@@ -11,8 +11,8 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
   const myVCard = new VCard()
 
   // Some variables
-  const lastname = 'Desloovere'
-  const firstname = 'Jeroen'
+  const lastname = 'Lauener'
+  const firstname = 'Pascal'
   const additional = ''
   const prefix = ''
   const suffix = ''
@@ -21,12 +21,10 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
     // Add personal data
     .addName(lastname, firstname, additional, prefix, suffix)
     // Add work data
-    .addCompany('Siesqo')
-    .addJobtitle('Web Developer')
-    .addRole('Data Protection Officer')
-    .addEmail('info@jeroendesloovere.be')
-    .addPhoneNumber(1234121212, 'PREF;WORK')
-    .addPhoneNumber(123456789, 'WORK')
+    .addCompany('Callista')
+    .addJobtitle('Director Software Development')
+    .addEmail('pascal.lauener@callista.ch')
+    .addPhoneNumber("+41 79 386 86 86", 'WORK')
     .addAddress(null, null, 'street', 'worktown', null, 'workpostcode', 'Belgium')
     .addURL('http://www.jeroendesloovere.be');
   
