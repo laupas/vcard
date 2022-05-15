@@ -1,0 +1,33 @@
+$font-stack: Helvetica, sans-serif;
+$primary-color: #333;
+$text-color: rgb(230, 230, 230);
+
+body {
+  font: 100% $font-stack;
+  color: $text-color;
+  background-color: $primary-color;
+}
+
+a {
+  color: $text-color;
+  text-decoration: none;
+  border: $text-color;
+  border-style: solid;
+  padding: 4px;
+}
+
+a:link {
+  color: $text-color;
+  text-decoration: none;
+}
+
+a:visited {
+  color: $text-color;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $text-color;
+  text-decoration: none;
+}
+
