@@ -23,13 +23,21 @@ function HomePage() {
       </Card>
       <Card bordered shadow={true} hoverable css={{ mw: "400px" }}>
         <h1>{config.firstName} {config.lastName}</h1>
-        <p>Director Software Development</p>
+        <h3>Director Software Development</h3>
       </Card>
       <Card bordered shadow={true} hoverable css={{ mw: "400px" }}>
-      <p>{config.address}</p>
-        <p>{config.zipCode} {config.location}</p>
-        <p>{config.phone}</p>
-        <p>{config.mail}</p>
+        <h3>Private Address</h3>
+        {config.address}<br></br>
+        {config.zipCode} {config.location}<br></br>
+        {config.phone}<br></br>
+        {config.mail}<br></br>
+      </Card>
+      <Card bordered shadow={true} hoverable css={{ mw: "400px" }}>
+        <h3>Business Address</h3>
+        {config.address}<br></br>
+        {config.zipCode} {config.location}<br></br>
+        {config.phone}<br></br>
+        {config.mail}<br></br>
       </Card>
       <Card bordered shadow={true} hoverable css={{ mw: "400px" }}>
         <Link href='./api/card'>save me as contact</Link>
