@@ -1,6 +1,13 @@
-import type { AppProps } from 'next/app'
-import  './_base.scss'
+import { NextUIProvider } from '@nextui-org/react';
 
-export default function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+
+function MyApp({ Component, pageProps }) {
+  return (
+    // 2. Use at the root of your app
+    <NextUIProvider>
+      <Component {...pageProps} />
+    </NextUIProvider>
+  );
 }
+
+export default MyApp;

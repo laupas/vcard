@@ -1,20 +1,19 @@
-import CSS from 'csstype';
-
-const divStyles: CSS.Properties = {
-  margin: 'auto',
-  width: "50%",
-  padding: '10px',
-  fontFamily: 'sans-serif',
-  fontSize: '1.5rem',
-  boxShadow: '0 0 10px rgba(0, 0, 0, 0.3)',
-};
-
+import { useTheme, Text } from '@nextui-org/react';
+import { Card } from "@nextui-org/react";
 
 export default function Layout(props: any) {
+
+  const { theme } = useTheme();
+
   return (
-    <><div style={divStyles}>
-          {props.children}
+    <div style={{
+      color: theme.colors.primary.value,
+      backgroundColor: theme.colors.accents1.value,
+      fontSize: theme.fontSizes.tiny.value,
+      padding: `${theme.space[2].value} ${theme.space[4].value}`
+    }}>
+      {props.children}
+      
     </div>
-    </>
   );
 }
