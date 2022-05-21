@@ -15,6 +15,7 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
     .addJobtitle(config.jobName)
     .addEmail(config.mail)
     .addPhoneNumber(config.phone, 'WORK')
+    .addPhoneNumber(fileName, 'HOME')
 //    .addAddress(null, null, 'street', 'worktown', null, 'workpostcode', 'Belgium')
       .addURL('https://' + fileName);
 //    .addURL('http://www.callista.ch');
