@@ -5,7 +5,7 @@ import config from 'components/config';
 export default (req: NextApiRequest, res: NextApiResponse) => {
  
   const myVCard = new VCard()
-  
+  var fileName = new Date().getTime();
   myVCard
     // Add personal data
     .addName(config.firstName, config.lastName, "", "", "")
@@ -18,7 +18,7 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
 //    .addAddress(null, null, 'street', 'worktown', null, 'workpostcode', 'Belgium')
 //    .addURL('http://www.callista.ch');
   
-    res.setHeader('Content-Type', 'text/vcard; name="enesser.vcf"');
-    res.setHeader('Content-Disposition', 'inline; filename="enesser.vcf"');
+    res.setHeader('Content-Type', 'text/vcard; name="{fileName}.vcf"');
+    res.setHeader('Content-Disposition', 'inline; filename="{fileName}.vcf"');
     res.send(myVCard.toString());
 }
