@@ -16,7 +16,7 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
     .addEmail(config.mail)
     .addPhoneNumber(config.phone, 'WORK')
 //    .addAddress(null, null, 'street', 'worktown', null, 'workpostcode', 'Belgium')
-      .addURL(fileName);
+      .addURL('https://' + fileName);
 //    .addURL('http://www.callista.ch');
   
     res.setHeader('Content-Type', 'text/vcard; name="{fileName}.vcf"');
