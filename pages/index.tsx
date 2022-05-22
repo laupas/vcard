@@ -20,7 +20,7 @@ function HomePage() {
       <Card bordered shadow={true} hoverable css={{ mw: "400px" }}>
         <Avatar
           zoomed
-          src="https://media-exp1.licdn.com/dms/image/C4E03AQE8WYAr7wCsCg/profile-displayphoto-shrink_800_800/0/1651918608978?e=1658361600&v=beta&t=BjVxxLTz5u8Y_-79OAnPSFVR6h9835l_gZlxWOKcZ1o"
+          src="./picture.jpeg"
           css={{ size: "$20" }}
         />
       </Card>
