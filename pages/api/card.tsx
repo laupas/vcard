@@ -10,15 +10,22 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
     // Add personal data
     .addName(config.firstName, config.lastName, "", "", "")
     .addPhotoURL("https://media-exp1.licdn.com/dms/image/C4E03AQE8WYAr7wCsCg/profile-displayphoto-shrink_800_800/0/1651918608978?e=1658361600&v=beta&t=BjVxxLTz5u8Y_-79OAnPSFVR6h9835l_gZlxWOKcZ1o")
-    // Add work data
+
+    // Add work data  
     .addCompany(config.companyName)
     .addJobtitle(config.jobName)
-    .addEmail(config.mail)
-    .addPhoneNumber(config.phone, 'WORK')
+    .addEmail(config.companyMail, "WORK")
+    .addPhoneNumber(config.companyPhone, 'WORK')
+    .addAddress("", "", config.companyAddress, config.companyLocation, "", config.companyZipCode, "", "WORK;POSTAL")
+    .addURL('http://www.callista.ch')
+
+    // Add home data
+    .addAddress("", "", config.address, config.location, "", config.zipCode, "", "HOME;POSTAL")
+    .addEmail(config.mail, "HOME")
     .addPhoneNumber(fileName, 'HOME')
-//    .addAddress(null, null, 'street', 'worktown', null, 'workpostcode', 'Belgium')
-      .addURL('https://' + fileName);
-//    .addURL('http://www.callista.ch');
+
+    .addNote(``);
+    //    .addAddress(null, null, 'street', 'worktown', null, 'workpostcode', 'Belgium')
   
     res.setHeader('Content-Type',`text/vcard; name="${fileName}.vcf"`);
     res.setHeader('Content-Disposition', `inline; filename="${fileName}.vcf"`);
