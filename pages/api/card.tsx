@@ -16,13 +16,13 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
     .addJobtitle(config.jobName)
     .addEmail(config.companyMail, "WORK")
     .addPhoneNumber(config.companyPhone, 'WORK')
-    .addAddress("", "", config.companyAddress, config.companyLocation, "", config.companyZipCode, "", "WORK;POSTAL")
+    .addAddress("Callista AG", "", config.companyAddress, config.companyLocation, "", config.companyZipCode, "", "WORK;POSTAL")
     .addURL('http://www.callista.ch')
 
     // Add home data
-    .addAddress("", "", config.address, config.location, "", config.zipCode, "", "HOME;POSTAL")
+    .addAddress("Private", "", config.address, config.location, "", config.zipCode, "", "HOME;POSTAL")
     .addEmail(config.mail, "HOME")
-    .addPhoneNumber(fileName, 'HOME')
+    .addPhoneNumber(config.phone, 'HOME')
 
     .addNote(``);
     //    .addAddress(null, null, 'street', 'worktown', null, 'workpostcode', 'Belgium')
