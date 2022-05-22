@@ -20,7 +20,7 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
       .addURL('https://' + fileName);
 //    .addURL('http://www.callista.ch');
   
-    res.setHeader('Content-Type', 'text/vcard; name="{fileName}.vcf"');
-    res.setHeader('Content-Disposition', 'inline; filename="{fileName}.vcf"');
+    res.setHeader('Content-Type',`text/vcard; name="${fileName}.vcf"`);
+    res.setHeader('Content-Disposition', `inline; filename="${fileName}.vcf"`);
     res.send(myVCard.toString());
 }

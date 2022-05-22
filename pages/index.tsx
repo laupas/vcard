@@ -40,7 +40,7 @@ function HomePage() {
         {config.mail}<br></br>
       </Card>
       <Card bordered shadow={true} hoverable css={{ mw: "400px" }}>
-        <Link href='./api/card?{new Date().getTime()}'>save me as contact</Link>
+        <Link href={ "./api/card?" + new Date().getTime() }>save me as contact</Link>
       </Card>
     </Layout>
   );
