@@ -18,14 +18,14 @@ function HomePage() {
 
   const privatePart = (
     <Card bordered shadow={true} hoverable css={{ mw: "400px" }}>
-      <Button icon={<IconlyPack.Home />} auto ghost>
+      <Button id="HomeTitle" icon={<IconlyPack.Home />} auto ghost>
         Private Address
       </Button>
       <Grid.Container gap={1}>
         <Grid xs={2}>
           <IconlyPack.Location />
         </Grid>
-        <Grid>
+        <Grid id="PrivateAddress">
           {config.address}
           <br></br>
           {config.zipCode} {config.location}
@@ -36,7 +36,7 @@ function HomePage() {
         <Grid xs={2}>
           <IconlyPack.Message />
         </Grid>
-        <Grid>
+        <Grid id="PrivateContact">
           {config.phone}
           <br></br>
           {config.mail}
@@ -48,14 +48,14 @@ function HomePage() {
 
   const businessPart = (
     <Card bordered shadow={true} hoverable css={{ mw: "400px" }}>
-      <Button icon={<IconlyPack.Work />} auto ghost>
+      <Button id="CompanyTitle" icon={<IconlyPack.Work />} auto ghost>
         Business Address
       </Button>
       <Grid.Container gap={1}>
         <Grid xs={2}>
           <IconlyPack.Location />
         </Grid>
-        <Grid>
+        <Grid id="CompanyAddress">
           {config.companyAddress}
           <br></br>
           {config.companyZipCode} {config.companyLocation}
@@ -66,7 +66,7 @@ function HomePage() {
         <Grid xs={2}>
           <IconlyPack.Message />
         </Grid>
-        <Grid>
+        <Grid id="CompanyContact">
           {config.companyPhone}
           <br></br>
           {config.companyMail}
@@ -78,19 +78,30 @@ function HomePage() {
 
   return (
     <Layout>
-      <Card bordered shadow={true} hoverable css={{ mw: "400px" }}>
-        <Avatar zoomed src="./picture.jpeg" css={{ size: "$20" }} />
+      <Card
+        id="headerCard"
+        bordered
+        shadow={true}
+        hoverable
+        css={{ mw: "400px" }}
+      >
+        <Avatar id="Avatar" zoomed src="./picture.jpeg" css={{ size: "$20" }} />
       </Card>
       <Card bordered shadow={true} hoverable css={{ mw: "400px" }}>
-        <Button onClick={navigate} icon={<IconlyPack.AddUser />} auto>
+        <Button
+          id="SaveContact"
+          onClick={navigate}
+          icon={<IconlyPack.AddUser />}
+          auto
+        >
           save me as contact
         </Button>
       </Card>
       <Card bordered shadow={true} hoverable css={{ mw: "400px" }}>
-        <h1>
+        <h1 id="name">
           {config.firstName} {config.lastName}
         </h1>
-        <h3>Director Software Development</h3>
+        <h3 id="title">Director Software Development</h3>
       </Card>
       {showBusiness ? businessPart : null}
       {showPrivate ? privatePart : null}
