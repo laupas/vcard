@@ -10,11 +10,66 @@ import { Avatar } from '@nextui-org/react';
 import * as IconlyPack from 'react-iconly'
 import { useRouter } from 'next/router';
 import { Grid } from '@nextui-org/react';
+import { URL } from 'url'
 
 
 function HomePage() {
   const router = useRouter();
-  const navigate = () => router.push("./api/card?" + new Date().getTime());
+  const showPrivate = router.query["showPrivate"] == "true";
+  const showBusiness = router.query["showBusiness"] == "true";
+  const navigate = () => router.push(`./api/card?${new Date().getTime()}&showPrivate=${showPrivate}&showBusiness=${showBusiness}`);
+
+  const privatePart = 
+  <Card bordered shadow={true} hoverable css={{ mw: "400px" }} >
+  <Button icon={<IconlyPack.Home /> } auto ghost>
+    Private Address
+  </Button>
+  <Grid.Container gap={1}>
+    <Grid xs={2}>
+      <IconlyPack.Location />
+    </Grid>
+    <Grid>
+      {config.address}<br></br>
+      {config.zipCode} {config.location}<br></br>
+    </Grid>
+  </Grid.Container>
+  <Grid.Container gap={1}>
+    <Grid xs={2}>
+    <IconlyPack.Message />
+    </Grid>
+    <Grid>
+     {config.phone}<br></br>
+      {config.mail}<br></br>
+    </Grid>
+  </Grid.Container>
+</Card>;
+
+const businessPart = <Card bordered shadow={true} hoverable css={{ mw: "400px" }}>
+<Button icon={<IconlyPack.Work /> } auto ghost>
+    Business Address
+  </Button>
+
+  <Grid.Container gap={1}>
+    <Grid xs={2}>
+      <IconlyPack.Location />
+    </Grid>
+    <Grid>
+      {config.companyAddress}<br></br>
+      {config.companyZipCode} {config.companyLocation}<br></br>
+    </Grid>
+  </Grid.Container>
+  <Grid.Container gap={1}>
+    <Grid xs={2}>
+    <IconlyPack.Message />
+    </Grid>
+    <Grid>
+      {config.companyPhone}<br></br>
+      {config.companyMail}<br></br>
+    </Grid>
+  </Grid.Container>
+
+</Card>;
+
   return (
     <Layout>
       <Card bordered shadow={true} hoverable css={{ mw: "400px" }}>
@@ -33,54 +88,18 @@ function HomePage() {
         <h1>{config.firstName} {config.lastName}</h1>
         <h3>Director Software Development</h3>
       </Card>
-      <Card bordered shadow={true} hoverable css={{ mw: "400px" }}>
-        <Button icon={<IconlyPack.Home /> } auto ghost>
-          Private Address
-        </Button>
-        <Grid.Container gap={1}>
-          <Grid xs={2}>
-            <IconlyPack.Location />
-          </Grid>
-          <Grid>
-            {config.address}<br></br>
-            {config.zipCode} {config.location}<br></br>
-          </Grid>
-        </Grid.Container>
-        <Grid.Container gap={1}>
-          <Grid xs={2}>
-          <IconlyPack.Message />
-          </Grid>
-          <Grid>
-           {config.phone}<br></br>
-            {config.mail}<br></br>
-          </Grid>
-        </Grid.Container>
-      </Card>
-      <Card bordered shadow={true} hoverable css={{ mw: "400px" }}>
-      <Button icon={<IconlyPack.Work /> } auto ghost>
-          Business Address
-        </Button>
 
-        <Grid.Container gap={1}>
-          <Grid xs={2}>
-            <IconlyPack.Location />
-          </Grid>
-          <Grid>
-            {config.companyAddress}<br></br>
-            {config.companyZipCode} {config.companyLocation}<br></br>
-          </Grid>
-        </Grid.Container>
-        <Grid.Container gap={1}>
-          <Grid xs={2}>
-          <IconlyPack.Message />
-          </Grid>
-          <Grid>
-            {config.companyPhone}<br></br>
-            {config.companyMail}<br></br>
-          </Grid>
-        </Grid.Container>
+      {showBusiness ? (
+        businessPart
+      ) : (
+        null
+      )}
 
-      </Card>
+      {showPrivate ? (
+        privatePart
+      ) : (
+        null
+      )}
     </Layout>
   );
 }
